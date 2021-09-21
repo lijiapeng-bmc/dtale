@@ -126,13 +126,13 @@ python: &python
           key: v1-dep-{{ .Branch }}-{{ epoch }}
           paths:
           - ~/ci
-      - run:
-          name: Copy JS Artifacts
-          command: |
-            ls -al /tmp/dtale/static/dist
-            cp -r /tmp/dtale/static/dist ./dtale/static/
-            ls -al /tmp/dtale/static/dash
-            cp -r /tmp/dtale/static/dash ./dtale/static/
+#      - run:
+#          name: Copy JS Artifacts
+#          command: |
+#            ls -al /tmp/dtale/static/dist
+#            cp -r /tmp/dtale/static/dist ./dtale/static/
+#            ls -al /tmp/dtale/static/dash
+#            cp -r /tmp/dtale/static/dash ./dtale/static/
       - run:
           name: Run Flake8
           command: |
@@ -259,19 +259,8 @@ workflows:
   version: 2
   build_all:
     jobs:
-      - build_JS
-      - build_2_7:
-          requires:
-            - build_JS
-      - build_3_6:
-          requires:
-            - build_JS
-      - build_3_7:
-          requires:
-            - build_JS
-      - build_3_8:
-          requires:
-            - build_JS
-      - build_3_9:
-          requires:
-            - build_JS
+      - build_2_7
+      - build_3_6
+      - build_3_7
+      - build_3_8
+      - build_3_9

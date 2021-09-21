@@ -388,7 +388,7 @@ def test_processes(test_data, unittest):
         assert "error" in response_data
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_update_settings(test_data, unittest):
     settings = json.dumps(dict(locked=["a", "b"]))
 
@@ -1907,7 +1907,7 @@ def test_chart_png_export(custom_data, state_data):
             assert write_image_mock.called
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_main():
     import dtale.views as views
 
@@ -1951,7 +1951,7 @@ def test_main():
         assert "<title>D-Tale</title>" in str(response.data)
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_view_by_name():
     import dtale.views as views
 
@@ -1975,7 +1975,7 @@ def test_view_by_name():
         assert "<title>D-Tale (test_name2)</title>" in str(response.data)
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_200():
     paths = [
         "/dtale/main/{port}",
@@ -2066,7 +2066,7 @@ def test_404():
     )
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_500():
     with app.test_client() as c:
         with ExitStack() as stack:
@@ -2085,7 +2085,7 @@ def test_500():
                 assert "<h1>Internal Server Error</h1>" in str(response.data)
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_jinja_output():
     import dtale.views as views
 
@@ -2512,7 +2512,7 @@ def test_build_dtypes_state(test_data):
     assert all("min" not in r and "max" not in r for r in state)
 
 
-@pytest.mark.unit
+@pytest.mark.skip(reason="no JS")
 def test_update_theme():
     import dtale.views as views
 
