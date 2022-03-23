@@ -57,7 +57,7 @@ class PivotBuilder(object):
 
     def reshape(self, data):
         index, columns, values, aggfunc = (
-            self.cfg.get(p) for p in ["index", "columns", "values", "aggfunc"]
+            self.cfg.get(p) for p in ["index", "columns", "values", "func"]
         )
         pivot_data = pd.pivot_table(
             data, values=values, index=index, columns=columns, aggfunc=aggfunc
